@@ -1,52 +1,41 @@
-# Prerequisites
-*.d
+#include<stdio.h>
+#include <math.h>
+#include<string.h>
+#include<conio.h>
+#include<ctype.h>
+#include<stdlib.h>
+// tim so chinh phuong trong day so nguyen, chi ra vi tri, tim so lon nhat, tinh tong
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int scp(int n){
+	if(n == 1 || n == 0) return 0;
+	else if(sqrt(n) == (int)(sqrt(n))){
+		return 1;
+	}
+	return 0;
+}
 
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+int main(){
+	int size;
+	printf("nhap so luong phan tu trong mang: "); scanf("%d",&size);
+	printf("\nnhap so cac phan tu trong mang: ");
+	int array[size];
+	int i;
+	for(i = 0; i < size; i++){
+		scanf("%d",&array[i]);
+	}
+	int max = 1;
+	int s = 0;
+	for(i = 0; i < size; i++){
+		if(scp(array[i])){
+			printf("so chinh phuong %d ", array[i]);
+			printf("nam o vi tri %d\n",i+1);
+			if(max < array[i]) max = array[i];
+			s += array[i];
+		}
+	}
+	printf("\nso lon nhat la %d",max);
+	printf("\ntong cac so la %d",s);
+	
+	
+	return 0;
+}
